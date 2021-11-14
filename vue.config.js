@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/f2e-week/dist/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/f2e-week-project/' : '/',
 };
