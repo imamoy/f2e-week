@@ -1,0 +1,122 @@
+#Footer.v-footer {
+    padding: 40px 0;
+
+    .logo {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 38px;
+        color: $darkBlue;
+
+        span {
+            font-size: 40px;
+            margin-left: 6px;
+            color: $white;
+        }
+    }
+
+    .copyright {
+        font-size: 12px;
+
+        span {
+            margin-right: 20px;
+        }
+    }
+
+    .follow-btn {
+        padding: 0 !important;
+
+        .v-btn__content {
+            font-weight: 700;
+        }
+
+        &:hover {
+            * {
+                color: $darkBlue !important;
+            }
+        }
+    }
+
+    .nav-lists {
+        margin: 0 auto;
+    }
+
+    .v-btn {
+        padding: 0 26px;
+        transition: .25s color;
+
+        * {
+            transition: .25s color;
+        }
+
+        .v-btn__content {
+            font-size: 15px !important;
+        }
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    @include min-padpro {
+        .nav-lists {
+            width: 58.3%;
+            min-width: 677px;
+        }
+    }
+
+    @include max-pad {
+        padding: 20px 0;
+
+        .logo {
+            font-size: 26px;
+            margin-left: 4px;
+
+            span {
+                font-size: 30px;
+            }
+        }
+
+        .follow-btn {
+            margin-right: 4px;
+        }
+
+        .follow-btn,
+        .logo {
+            margin-top: 20px;
+        }
+
+        .v-btn:not(.follow-btn) {
+            height: 50px;
+            padding: 0;
+
+            .v-btn__content {
+                font-size: 15px !important;
+            }
+        }
+
+        .copyright {
+            font-size: 8px;
+            margin-top: 10px;
+            padding: 0 4px;
+
+            span {
+                margin-right: 10px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @include max-phonemini {
+        .v-btn:not(.follow-btn) {
+            padding: 15px 0 !important;
+
+            .v-btn__content {
+                font-size: 14px !important;
+            }
+        }
+
+    }
+}

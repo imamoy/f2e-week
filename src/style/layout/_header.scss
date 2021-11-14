@@ -1,0 +1,64 @@
+#header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: $yellow;
+    position: relative;
+
+    .container {
+        max-width: none;
+    }
+
+    h1 {
+        font-family: 'Roboto';
+        font-size: 30px;
+        color: $darkBlue;
+
+        span {
+            font-size: 34px;
+            margin-left: 6px;
+            color: $white;
+        }
+    }
+
+    .v-row {
+        height: 100%;
+    }
+
+    @include min-padpro {
+        height: 110px;
+    }
+
+    @include max-pad {
+        padding: 10px 25px;
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+
+            span {
+                font-size: 32px;
+            }
+        }
+
+        .lang-btn {
+            position: absolute;
+            right: 62px;
+            top: 20px;
+        }
+    }
+
+    @include max-phonemini {
+        padding: 0 20px 5px;
+
+        .lang-btn {
+            top: 12px;
+            right: 54px;
+
+            .v-icon {
+                font-size: 26px !important;
+            }
+        }
+    }
+}

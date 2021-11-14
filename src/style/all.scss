@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Roboto:wght@400;500;700&display=swap');
+@import '~@/assets/fontello/css/fontello.css';
+
+@import 'help/variables';
+@import 'help/rwd';
+@import 'help/mixin';
+@import 'help/font';
+@import 'help/common';
+@import 'element/btn';
+@import 'element/form';
+@import 'element/card';
+@import 'element/slider';
+
+@import 'layout/header';
+@import 'layout/footer';

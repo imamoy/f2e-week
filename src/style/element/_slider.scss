@@ -1,0 +1,107 @@
+.slick-dots {
+    li {
+        margin: 0 7.5px !important;
+
+        button {
+            padding: 2px !important;
+
+            &:before {
+                font-size: 17px !important;
+                color: $light !important;
+                opacity: 1 !important;
+            }
+        }
+
+        &.slick-active {
+            button {
+                &:before {
+                    color: $yellow !important;
+                }
+            }
+        }
+    }
+}
+
+.cross-slider-arrows {
+    .slick-disabled {
+        opacity: .5;
+    }
+
+    .cross-slider-page {
+        @include max-phone {
+            display: none;
+        }
+    }
+
+    .cross-slider-page {
+        font-size: 1rem;
+        font-family: 'Roboto', sans-serif;
+        color: $dark;
+    }
+}
+
+.banner-wrapper {
+    @include min-padpro {
+        .slick-slide {
+            width: 1040px !important;
+            padding: 0 10px;
+        }
+    }
+
+    @include max-pad {
+        margin-top: 2px;
+
+        .slick-slide {
+            width: calc(100vw - 30px) !important;
+            padding: 0 5px;
+        }
+    }
+}
+
+.cross-slider {
+    @include min-padpro {
+        max-width: none;
+        width: calc(1040px + ((100% - 1040px) / 2));
+        margin-left: calc((100% - 1040px) / 2);
+        margin-right: 0;
+    }
+
+    @include max-pad {
+        padding-left: 16px;
+    }
+}
+
+.hot-travel-slider {
+    .slick-slide {
+        @include min-padpro {
+            width: 336px !important;
+            padding: 10px;
+        }
+    }
+}
+
+.writer-travel-head {
+    position: relative;
+
+    .cross-slider-arrows {
+        @include min-padpro {
+            position: absolute;
+            top: 2px;
+            right: 0;
+        }
+    }
+}
+
+.writer-travel-slider {
+    .slick-slide {
+        padding: 10px;
+
+        @include min-padpro {
+            width: 400px !important;
+        }
+
+        @include max-pad {
+            width: 80vw !important;
+        }
+    }
+}

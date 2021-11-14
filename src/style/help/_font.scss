@@ -1,0 +1,31 @@
+body,
+html {
+    font-size: 18px;
+}
+
+.f-title {
+    font-size: 1.6666rem;
+    font-weight: 700;
+
+    @include max-phone {
+        font-size: 24px !important;
+    }
+}
+
+.f-sub-title {
+    font-size: 20px;
+    font-weight: 500;
+
+    @include max-phone {
+        font-size: 18px !important;
+    }
+}
+
+.f-card-titleBig {
+    font-size: 1.5555rem !important;
+    font-weight: 700 !important;
+
+    @include max-phone {
+        font-size: 17px !important;
+    }
+}
