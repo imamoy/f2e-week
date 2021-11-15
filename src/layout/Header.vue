@@ -3,7 +3,7 @@
   v-container(fluid)
     v-row.align-center.justify-md-space-between
       v-col.pl-1(cols="12", md="3")
-        v-btn(text :ripple='false' to='/')
+        v-btn.px-0(text :ripple='false' to='/')
           h1 Taiwan#[span GO]
       v-col.d-none.d-md-inline-flex(cols="12", md="6")
         v-form.search-bar(@submit='doSearch')
@@ -29,9 +29,40 @@
               v-list-item(v-for="(item, index) in langList", :key="index")
                 v-list-item-title {{ item.name }}
       v-col.pt-1.px-0.d-inline-flex.d-md-none(cols='12')
-        v-btn.search-btn(width='100%' depressed rounded :ripple='false')
+        v-btn.search-btn(width='100%' depressed rounded :ripple='false' @click='mobileSearch = true')
           v-icon(size='14' color='primary') icon-search-1
           span 你想去哪裡？台南景點
+  v-dialog(v-model='mobileSearch' fullscreen hide-overlay transition="dialog-top-transition" content-class='mobile-search')
+    v-card(dark flat)
+      v-container
+        v-row
+          v-col(cols='12')
+            v-btn(@click='mobileSearch = false' colos='gary' icon)
+              v-icon.mr-2(size='25') icon-left-open
+          v-col(cols='12')
+            v-form.search-mobile-bar(@submit='doSearch')
+              v-text-field.mb-4(v-model='searchData.name' label="你想去哪裡？台南景點", width="100%", height="45", solo, hide-details, rounded light)
+              v-row
+                v-col.pr-3(cols='8')
+                  v-select(solo, v-model='searchData.classification' label='全部景點' :items='classifications' item-color='secondary' width="140", height="45", color='secondary' append-icon="icon-arrow", :menu-props='{ bottom: true, offsetY: true, nudgeBottom: 10 }' hide-details, rounded light)
+                v-col.pl-2(cols='4')
+                  v-btn( type="submit", color="primary", width="100%", height="48", rounded)
+                    v-icon(size="34") icon-search
+          v-col.mt-4(cols='12')
+            v-card.pa-0(light flat)
+              .f-sub-title 推薦景點
+              v-list-item.recommend.my-4(to='/Taipei')
+                v-list-item-icon.ma-0
+                  v-icon(size='16' color='dark') icon-location
+                v-list-item-content
+                  v-list-item-title 台北景點
+              v-list-item.recommend.my-4(to='/Kaohsiun4')
+                v-list-item-icon.ma-0
+                  v-icon(size='16' color='dark') icon-location
+                v-list-item-content
+                  v-list-item-title 高雄景點
+
+
 </template>
 <script>
 import _ from 'lodash';
@@ -39,6 +70,7 @@ import _ from 'lodash';
 export default {
     name: 'Header',
     data: () => ({
+        mobileSearch: false,
         langList: [
             {
                 idx: 0,
@@ -74,6 +106,7 @@ export default {
             if (!_.isEmpty(this.searchData)) {
                 this.$store.dispatch('setSearchInfo', this.searchData);
                 this.$router.push('/search');
+                this.mobileSearch = false;
             } else {
                 alert('請輸入內容才能搜尋喔！');
             }

@@ -3,7 +3,7 @@
     v-overlay(:value='loading' opacity='0.7')
         v-progress-circular(indeterminate :size='70' :width='7' color='primary')
     .warning-notice-bar
-        flicking(:options="{ panel: '260px', moveType: 'freeScroll', bound: true, align: 'center', defaultIndex: 1 }" :plugins='warningSetting')
+        flicking(:options="{ panel: '260px', moveType: 'freeScroll', bound: true, align: 'center', defaultIndex: 1, camera: '100%' }" :plugins='warningSetting')
             v-btn(color='secondary' height='46' depressed)
                 v-icon.mr-1 icon-warning
                 span 卡利夢梅之宴 暫停辦理

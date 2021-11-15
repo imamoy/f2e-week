@@ -83,3 +83,50 @@
     }
   }
 }
+
+.search-mobile-bar {
+  .v-select {
+    .v-select__slot {
+
+      .v-label,
+      .v-select__selection {
+        color: $dark;
+      }
+
+      .v-select__selection {
+        max-width: 100%;
+        margin-right: 0;
+      }
+
+      .v-input__icon {
+        .v-icon {
+          font-size: 14px;
+          color: $orange;
+        }
+      }
+    }
+  }
+}
+
+.recommend {
+  padding-left: 0 !important;
+  display: flex;
+  align-items: center;
+  min-height: 40px !important;
+
+  .v-list-item__icon {
+    min-width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    background-color: rgba($white, .7) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    margin-right: 10px !important;
+  }
+
+  .v-list-item__content {
+    padding: 0 !important;
+  }
+}

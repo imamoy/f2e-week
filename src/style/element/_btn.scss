@@ -29,6 +29,10 @@
 .warning-notice-bar {
     padding: 30px 0;
 
+    .flicking-camera {
+        display: flex !important;
+    }
+
     .v-btn {
         border-radius: 10px !important;
         padding: 10px !important;
