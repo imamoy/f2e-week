@@ -73,7 +73,7 @@
     }
 
     @include max-phone {
-        width: 326px;
+        width: 326px !important;
         padding-right: 10px !important;
     }
 

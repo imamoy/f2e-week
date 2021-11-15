@@ -3,37 +3,11 @@
     v-overlay(:value='loading' opacity='0.7')
         v-progress-circular(indeterminate :size='70' :width='7' color='primary')
     .warning-notice-bar
-        flicking(:options="{ panel: '260px', moveType: 'freeScroll', bound: true, align: 'center', defaultIndex: 1, camera: '100%' }" :plugins='warningSetting')
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
-            v-btn(color='secondary' height='46' depressed)
-                v-icon.mr-1 icon-warning
-                span 卡利夢梅之宴 暫停辦理
+        flicking(v-if='warningList.length > 0' :options="{ panel: '260px', moveType: 'freeScroll', bound: true, align: 'center', defaultIndex: 1, camera: '100%' }" :plugins='warningSetting')
+            div(v-for='item, index in warningList')
+                v-btn(color='secondary' height='46' depressed)
+                    v-icon.mr-1 icon-warning
+                    span {{ item.Name }} {{ item.Cycle }}
 
     .banner-wrapper.mb-5.mb-md-10.pb-md-5
         slick(ref='slick' :options='bannerSlickSetting')
@@ -106,9 +80,33 @@
                             v-icon(size='20') icon-right-open
         .cross-slider.writer-travel-slider
             slick(ref='slick' :options='writerTravelSlickSetting')
-                .writer-travel-card(v-for='item, index in list')
+                .writer-travel-card
                     v-card(flat)
                         v-img(src='@/assets/images/writer-travel-1.png')
+                    v-card-text
+                        v-card-title.pa-0
+                            span.q-icon Q
+                            span.q-text 關於墾丁回憶...
+                        v-row.mt-2(no-gutters)
+                            v-col(cols='12' md='10')
+                                p.mb-1 人與景點猶如夏天般的炙熱，是我所熟悉墾丁。
+                            v-col.text-right(cols='12' md='2')
+                                v-icon(size='22') icon-right
+                .writer-travel-card
+                    v-card(flat)
+                        v-img(src='@/assets/images/writer-travel-2.png')
+                    v-card-text
+                        v-card-title.pa-0
+                            span.q-icon Q
+                            span.q-text 關於墾丁回憶...
+                        v-row.mt-2(no-gutters)
+                            v-col(cols='12' md='10')
+                                p.mb-1 人與景點猶如夏天般的炙熱，是我所熟悉墾丁。
+                            v-col.text-right(cols='12' md='2')
+                                v-icon(size='22') icon-right
+                .writer-travel-card
+                    v-card(flat)
+                        v-img(src='@/assets/images/writer-travel-3.png')
                     v-card-text
                         v-card-title.pa-0
                             span.q-icon Q
@@ -190,6 +188,7 @@ export default {
         travelInfoDetail: '',
         list: [0, 1, 2, 3, 4],
         warningSetting,
+        warningList: [],
         bannerList: [
             {
                 Name: '奇美博物館',
@@ -269,13 +268,36 @@ export default {
                 },
             ],
         },
+        noticeList: [],
     }),
     mounted() {
         this.loading = true;
+        this.getStop();
         this.getHotTravel();
+        this.getNotice();
         this.loading = false;
     },
     methods: {
+        getStop() {
+            axios
+                .get("https://ptx.transportdata.tw/MOTC/v2/Tourism/Activity?$filter=contains(Cycle,'延期辦理')+&$format=JSON", {
+                    headers: this.getAuthorizationHeader(),
+                })
+                .then((res) => {
+                    this.warningList = res.data;
+                });
+            this.loading = false;
+        },
+        getNotice() {
+            axios
+                .get('https://ptx.transportdata.tw/MOTC/v2/Tourism/Activity?$orderby=Cycle&$top=5&$format=JSON', {
+                    headers: this.getAuthorizationHeader(),
+                })
+                .then((res) => {
+                    this.noticeList = res.data;
+                });
+            this.loading = false;
+        },
         getHotTravel() {
             axios
                 .get('https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?$top=100&$format=JSON', {
@@ -312,6 +334,10 @@ export default {
         },
         onEmitTravelInfoDialog() {
             this.travelInfoShow = false;
+        },
+        getDate(val) {
+            const date = val.getUTCFullYear() + '/' + (val.getUTCMonth() + 1) + '/' + val.getUTCDate();
+            return date;
         },
     },
 };
