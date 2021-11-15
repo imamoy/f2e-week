@@ -98,10 +98,10 @@
                     v-card-text
                         v-card-title.pa-0
                             span.q-icon Q
-                            span.q-text 關於墾丁回憶...
+                            span.q-text 對於台北巷弄早午餐？
                         v-row.mt-2(no-gutters)
                             v-col(cols='12' md='10')
-                                p.mb-1 人與景點猶如夏天般的炙熱，是我所熟悉墾丁。
+                                p.mb-1 台北的巷弄藏著不同風格早午餐，是我每次來到台北的動力...
                             v-col.text-right(cols='12' md='2')
                                 v-icon(size='22') icon-right
                 .writer-travel-card
@@ -110,10 +110,10 @@
                     v-card-text
                         v-card-title.pa-0
                             span.q-icon Q
-                            span.q-text 關於墾丁回憶...
+                            span.q-text 廟的文化
                         v-row.mt-2(no-gutters)
                             v-col(cols='12' md='10')
-                                p.mb-1 人與景點猶如夏天般的炙熱，是我所熟悉墾丁。
+                                p.mb-1 每當去不同的地方，就醫定要到附近的廟宇感受不同的背景時空及信仰。
                             v-col.text-right(cols='12' md='2')
                                 v-icon(size='22') icon-right
         v-container.text-center
