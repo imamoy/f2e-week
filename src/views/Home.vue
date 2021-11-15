@@ -280,7 +280,7 @@ export default {
     methods: {
         getStop() {
             axios
-                .get("https://ptx.transportdata.tw/MOTC/v2/Tourism/Activity?$filter=contains(Cycle,'延期辦理')+&$format=JSON", {
+                .get("https://ptx.transportdata.tw/MOTC/v2/Tourism/Activity?$filter=contains(Cycle,'暫停辦理')+&$format=JSON", {
                     headers: this.getAuthorizationHeader(),
                 })
                 .then((res) => {
