@@ -46,17 +46,17 @@
                 v-col.pr-3(cols='8')
                   v-select(solo, v-model='searchData.classification' label='全部景點' :items='classifications' item-color='secondary' width="140", height="45", color='secondary' append-icon="icon-arrow", :menu-props='{ bottom: true, offsetY: true, nudgeBottom: 10 }' hide-details, rounded light)
                 v-col.pl-2(cols='4')
-                  v-btn( type="submit", color="primary", width="100%", height="48", rounded)
+                  v-btn(type="submit", color="primary", width="100%", height="48", rounded)
                     v-icon(size="34") icon-search
           v-col.mt-4(cols='12')
             v-card.pa-0(light flat)
               .f-sub-title 推薦景點
-              v-list-item.recommend.my-4(to='/Taipei')
+              v-list-item.recommend.my-4(to='/Taipei' @click='mobileSearch = false')
                 v-list-item-icon.ma-0
                   v-icon(size='16' color='dark') icon-location
                 v-list-item-content
                   v-list-item-title 台北景點
-              v-list-item.recommend.my-4(to='/Kaohsiun4')
+              v-list-item.recommend.my-4(to='/Kaohsiun4' @click='mobileSearch = false')
                 v-list-item-icon.ma-0
                   v-icon(size='16' color='dark') icon-location
                 v-list-item-content

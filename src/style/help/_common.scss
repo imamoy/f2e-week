@@ -1,8 +1,10 @@
 html,
 body,
 #app {
+    width: 100%;
     font-family: 'Noto Sans TC';
     color: $dark;
+    overflow-x: hidden !important;
 }
 
 .v-text-field.v-text-field--enclosed:not(.v-text-field--rounded)>.v-input__control>.v-input__slot,

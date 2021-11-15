@@ -82,6 +82,15 @@
     }
 }
 
+.travel-list-page {
+    @include max-phone {
+        .hot-travel-card {
+            margin: 0 auto !important;
+            padding: 0 !important;
+        }
+    }
+}
+
 .writer-travel-card {
 
     .v-card,

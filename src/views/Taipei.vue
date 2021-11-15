@@ -1,5 +1,5 @@
 <template lang="pug">
-#taipei.py-5
+#taipei.travel-list-page.py-5
     v-overlay(:value='loading' opacity='0.7')
         v-progress-circular(indeterminate :size='70' :width='7' color='primary')
     v-container

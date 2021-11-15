@@ -179,10 +179,14 @@
         }
     }
 
-    .v-slide-group__wrapper,
-    .v-slide-group__content {
-        width: 100%;
-        justify-content: space-around !important;
+    .v-slide-group__prev,
+    .v-slide-group__next {
+        flex: 0 1 40 !important;
+        min-width: 40px !important;
+
+        .v-icon {
+            color: $orange !important;
+        }
     }
 
     .v-chip {
@@ -199,6 +203,10 @@
         &.v-chip--active {
             background-color: $orange !important;
             color: $white !important;
+        }
+        @include max-pad {
+            min-width: auto !important;
+            height: 45px !important;
         }
     }
 }
