@@ -21,7 +21,7 @@
                         .hot-travel-card.mb-2(@click='showTravelInfo(item)')
                             v-card(flat)
                                 v-img(:src='item.Picture.PictureUrl1')
-                                v-card-title.f-card-titleBig {{ getCity(searchLocation) }}
+                                v-card-title.f-card-titleBig {{ getCity(item.Address) }}
                             v-card-subtitle {{ item.Name }}
             template(v-slot:footer)
                 .cross-slider-arrows.d-flex.align-center.justify-center.my-10(v-if='travelData.length > 1')
@@ -65,7 +65,7 @@ export default {
         page: 1,
         itemsPerPage: 12,
         pages: '',
-        searchLocation: 'Taipei',
+        searchLocation: '',
     }),
     computed: {
         taiwanCityLists() {
