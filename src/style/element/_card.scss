@@ -45,8 +45,10 @@
         }
 
         .v-card__title {
+            display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             letter-spacing: 10px;
             width: 56px;
             height: 132px;
@@ -73,8 +75,11 @@
     }
 
     @include max-phone {
-        width: 326px !important;
+        width: 330px !important;
         padding-right: 10px !important;
+        .v-card__title {
+            font-size: 28px !important;
+        }
     }
 
     @include max-phonemini {
@@ -266,5 +271,13 @@
 .mobile-search {
     .v-card {
         background-color: $yellow !important;
+    }
+}
+.travel-dialog {
+    overflow: hidden !important;
+
+    .inner {
+        height: calc(100vh - 132px);
+        overflow-y: auto;
     }
 }

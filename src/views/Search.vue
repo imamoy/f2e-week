@@ -21,10 +21,10 @@
                         .hot-travel-card.mb-2(@click='showTravelInfo(item)')
                             v-card(flat)
                                 v-img(:src='item.Picture.PictureUrl1')
-                                v-card-title.f-card-titleBig {{ getCity(item.Address) }}
+                                v-card-title.f-card-titleBig {{ getCity(item.Address, item.City) }}
                             v-card-subtitle {{ item.Name }}
             template(v-slot:footer)
-                .cross-slider-arrows.d-flex.align-center.justify-center.my-10(v-if='travelData.length > 1')
+                .cross-slider-arrows.d-flex.align-center.justify-center.my-10
                     v-btn.custom-slick-prev.mr-2.mr-md-0(color='primary' width='40' height='40' @click='formerPage' :disabled='page === 1' fab depressed)
                         v-icon(size='20') icon-left-open
                     .cross-slider-page.mx-4.mx-8
@@ -116,11 +116,13 @@ export default {
             let Authorization = 'hmac username="' + AppID + '", algorithm="hmac-sha1", headers="x-date", signature="' + HMAC + '"';
             return { Authorization: Authorization, 'X-Date': GMTString };
         },
-        getCity(address) {
+        getCity(address, city) {
             let cityName = '';
             if (address) {
-                const cityNameFilter = _.filter(this.taiwanCityLists, { value: address });
-                cityName = cityNameFilter[0].name.substr(0, 2);
+                cityName = address.substr(0, 2);
+            }
+            if (city) {
+                cityName = address.substr(0, 2);
             }
             return cityName;
         },
