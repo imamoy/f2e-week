@@ -8,9 +8,9 @@ v-card.travelInfo-card
                     v-btn.px-0(@click='onCancel' colos='gary' text)
                         v-icon.mr-2(size='20') icon-left
                         span 回上一頁
-                v-col(cols='12' md='10')
+                v-col(cols='12' md='8')
                     h2.f-title.text-center {{ travelData.Name }}
-                v-col.d-none.d-inline-md-block(cols='2')
+                v-col(cols='0' md='2')
             .my-10
                 v-img(v-if='travelData.Picture.PictureUrl1' :src='travelData.Picture.PictureUrl1' width='100%' height='46vh' max-height='500')
                 p.mt-5 {{ travelData.DescriptionDetail }}
