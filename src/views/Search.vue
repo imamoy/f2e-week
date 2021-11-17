@@ -141,5 +141,10 @@ export default {
             this.travelInfoShow = false;
         },
     },
+    watch: {
+        searchInfo: function() {
+            this.getTravel();
+        },
+    },
 };
 </script>
