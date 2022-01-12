@@ -61,8 +61,6 @@
                   v-icon(size='16' color='dark') icon-location
                 v-list-item-content
                   v-list-item-title 高雄景點
-
-
 </template>
 <script>
 import _ from 'lodash';
@@ -104,8 +102,13 @@ export default {
     methods: {
         doSearch: function (e) {
             if (!_.isEmpty(this.searchData)) {
-                this.$store.dispatch('setSearchInfo', this.searchData);
-                this.$router.push('/search');
+                if (this.$router.history.current.fullPath != '/search') {
+                    this.$store.dispatch('setSearchInfo', this.searchData);
+                    this.$router.push('/search');
+                } else {
+                    this.$store.dispatch('setSearchInfo', this.searchData);
+                    this.$router.push('/result');
+                }
                 this.mobileSearch = false;
             } else {
                 alert('請輸入內容才能搜尋喔！');

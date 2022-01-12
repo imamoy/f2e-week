@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Search from '../views/Search.vue';
+import Result from '../views/Result.vue';
 import HotTravel from '../views/HotTravel.vue';
 import Taipei from '../views/Taipei.vue';
 import Kaohsiung from '../views/Kaohsiung.vue';
@@ -18,6 +19,11 @@ const routes = [
         path: '/search',
         name: 'Search',
         component: Search,
+    },
+    {
+        path: '/result',
+        name: 'Result',
+        component: Result,
     },
     {
         path: '/hotTravel',
